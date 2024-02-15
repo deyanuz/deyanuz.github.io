@@ -459,6 +459,7 @@ img {
   padding: 1rem;
   outline: none;
   border: none;
+  resize: none;
   background-color: var(--first-color-light);
   font-size: var(--normal-font-size);
   margin-bottom: var(--mb2);
