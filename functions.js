@@ -4,9 +4,23 @@ const navMenu = document.getElementById("nav-menu"),
 
 toggleMenu.addEventListener("click", () => {
   navMenu.classList.toggle("show");
+
+  var navItems = document.querySelectorAll('.nav__item');
+  var delay = 100; 
+  
+  navItems.forEach(function(item, index) {
+    setTimeout(function() {
+      item.classList.add('activate');
+    }, index * delay);
+  });
+  
 });
 closeMenu.addEventListener("click", () => {
   navMenu.classList.remove("show");
+  var navItems = document.querySelectorAll('.nav__item');  
+  navItems.forEach(function(item, index) {
+      item.classList.remove('activate');
+  });
 });
 const navLink = document.querySelectorAll(".nav__link");
 
@@ -36,3 +50,15 @@ function scrollActive() {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var navItems = document.querySelectorAll('.nav__item');
+  var delay = 100; 
+  
+  navItems.forEach(function(item, index) {
+    setTimeout(function() {
+      item.classList.add('active');
+    }, index * delay);
+  });
+});
+

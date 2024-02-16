@@ -145,6 +145,10 @@ img {
 }
 .nav__item {
   margin-bottom: var(--mb4);
+  position: relative;
+  left: -100%; /* Initially position each item off the left side */
+  opacity: 0; /* Initially hide each item */
+  transition: left 1s ease, opacity 1s ease; /* Apply transition effect for left and opacity */
 }
 .nav__link {
   font-size: 1rem;
@@ -582,4 +586,21 @@ img {
   .forte__container{
     grid-template-columns: repeat(3,1fr);
   }
+
+  .nav__item {
+    position: relative;
+    left: -100px; /* Initially position each item off the left side */
+    opacity: 0; /* Initially hide each item */
+    transition: left 1s ease, opacity 1s ease; /* Apply transition effect for left and opacity */
+  }
+  
+  .nav__item.active {
+    left: 0; /* Move each item to the starting position */
+    opacity: 1; /* Make each item visible */
+  }
+}
+
+.activate {
+  left: 0; /* Move each item to the starting position */
+  opacity: 1; /* Make each item visible */
 }
