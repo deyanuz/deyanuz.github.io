@@ -5,21 +5,20 @@ const navMenu = document.getElementById("nav-menu"),
 toggleMenu.addEventListener("click", () => {
   navMenu.classList.toggle("show");
 
-  var navItems = document.querySelectorAll('.nav__item');
-  var delay = 100; 
-  
-  navItems.forEach(function(item, index) {
-    setTimeout(function() {
-      item.classList.add('activate');
+  var navItems = document.querySelectorAll(".nav__item");
+  var delay = 100;
+
+  navItems.forEach(function (item, index) {
+    setTimeout(function () {
+      item.classList.add("activate");
     }, index * delay);
   });
-  
 });
 closeMenu.addEventListener("click", () => {
   navMenu.classList.remove("show");
-  var navItems = document.querySelectorAll('.nav__item');  
-  navItems.forEach(function(item, index) {
-      item.classList.remove('activate');
+  var navItems = document.querySelectorAll(".nav__item");
+  navItems.forEach(function (item) {
+    item.classList.remove("activate");
   });
 });
 const navLink = document.querySelectorAll(".nav__link");
@@ -38,11 +37,21 @@ function scrollActive() {
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
-    var sectionId = current.getAttribute('id');
+    var sectionId = current.getAttribute("id");
+    const skillBars = document.querySelectorAll(".skills__bar");
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
         .classList.add("active");
+      if (sectionId == "skills") {
+        skillBars.forEach((skillBar) => {
+          skillBar.classList.add("transition");
+        });
+      } else {
+        skillBars.forEach((skillBar) => {
+          skillBar.classList.remove("transition");
+        });
+      }
     } else {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
@@ -51,14 +60,13 @@ function scrollActive() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  var navItems = document.querySelectorAll('.nav__item');
-  var delay = 100; 
-  
-  navItems.forEach(function(item, index) {
-    setTimeout(function() {
-      item.classList.add('active');
+document.addEventListener("DOMContentLoaded", function () {
+  var navItems = document.querySelectorAll(".nav__item");
+  var delay = 100;
+
+  navItems.forEach(function (item, index) {
+    setTimeout(function () {
+      item.classList.add("active");
     }, index * delay);
   });
 });
-

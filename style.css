@@ -301,27 +301,29 @@ img {
   justify-content: space-between;
   margin: 0 var(--mb2);
   margin-bottom: var(--mb4);
+  transition: transform 0.3s;
 }
 .skills__bar {
   position: absolute;
   bottom: -0.75rem;
   height: 0.25rem;
   background-color: var(--first-color);
+  transition: width 1s ease;
 }
 .skill__html {
-  width: 80%;
+  width: 0%;
 }
 .skill__js {
-  width: 70%;
+  width: 0%;
 }
 .skill__php {
-  width: 70%;
+  width: 0%;
 }
 .skill__firebase {
-  width: 80%;
+  width: 0%;
 }
 .skill__python {
-  width: 85%;
+  width: 0%;
 }
 .education__container {
   row-gap: 2rem;
@@ -543,48 +545,49 @@ img {
   .education__time {
     padding: 0 2rem;
   }
-  .contact__info{
+  .contact__info {
     padding-left: 3rem;
-
   }
-  .contact__container{
+  .contact__container {
     column-gap: 2rem;
   }
-  .footer{
+  .footer {
     background-color: var(--first-color-lighten);
   }
-  .footer__container{
+  .footer__container {
     background-color: var(--first-color-darken);
     padding: 3rem 0;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 }
 @media screen and (min-width: 1250px) {
-  body{
+  body {
     margin: 0;
     padding-left: var(--nav-width);
   }
-  .l-header{
+  .l-header {
     width: 0;
   }
-  .nav__toggle, .nav__logo, .nav__close{
+  .nav__toggle,
+  .nav__logo,
+  .nav__close {
     display: none;
   }
-  .nav__menu{
+  .nav__menu {
     left: 0;
   }
-  .home__container{
+  .home__container {
     height: 100vh;
   }
-  .section{
+  .section {
     padding: 3rem 0 2rem;
   }
-  .bd-grid{
+  .bd-grid {
     margin-left: auto;
     margin-right: auto;
   }
-  .forte__container{
-    grid-template-columns: repeat(3,1fr);
+  .forte__container {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .nav__item {
@@ -593,7 +596,7 @@ img {
     opacity: 0; /* Initially hide each item */
     transition: left 1s ease, opacity 1s ease; /* Apply transition effect for left and opacity */
   }
-  
+
   .nav__item.active {
     left: 0; /* Move each item to the starting position */
     opacity: 1; /* Make each item visible */
@@ -603,4 +606,12 @@ img {
 .activate {
   left: 0; /* Move each item to the starting position */
   opacity: 1; /* Make each item visible */
+}
+
+.skills__data:hover {
+  transform: scale(1.1);
+}
+
+.skills__bar.transition {
+  width:50%
 }
