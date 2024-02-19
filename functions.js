@@ -36,21 +36,40 @@ function scrollActive() {
 
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50;
+    const sectionTop = current.offsetTop - 200;
     var sectionId = current.getAttribute("id");
+    const skillNumbrs= document.querySelectorAll(".skills__number");
     const skillBars = document.querySelectorAll(".skills__bar");
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
         .classList.add("active");
       if (sectionId == "skills") {
-        skillBars.forEach((skillBar) => {
-          skillBar.classList.add("transition");
-        });
+
+        for (let i = 0; i < skillBars.length; i++) {
+
+          var per = skillNumbrs[i].textContent;
+          var nameclass = "s" + i.toString() + "after";
+          var s5AfterCss = "." + nameclass + " { width: " + per + "; }";
+          var styleElement = document.createElement("style");
+
+          styleElement.textContent = s5AfterCss;
+          document.body.appendChild(styleElement);
+          skillBars[i].classList.add(nameclass);
+        }
       } else {
-        skillBars.forEach((skillBar) => {
-          skillBar.classList.remove("transition");
-        });
+        // skillBars.forEach((skillBar) => {
+        //   skillBar.classList.remove("transition");
+        // });
+        for (let i = 0; i < skillBars.length; i++) {
+
+          var s5AfterCss = "." + nameclass + " { width: 0%; }";
+          var styleElement = document.createElement("style");
+
+          styleElement.textContent = s5AfterCss;
+          document.body.appendChild(styleElement);
+          skillBars[i].classList.add(nameclass);
+        }
       }
     } else {
       document

@@ -310,21 +310,21 @@ img {
   background-color: var(--first-color);
   transition: width 1s ease;
 }
-.skill__html {
+/* .s0 {
   width: 0%;
 }
-.skill__js {
+.s1 {
   width: 0%;
 }
-.skill__php {
+.s2 {
   width: 0%;
 }
-.skill__firebase {
+.s3 {
   width: 0%;
 }
-.skill__python {
+.s4 {
   width: 0%;
-}
+} */
 .education__container {
   row-gap: 2rem;
 }
