@@ -404,34 +404,34 @@
       <span class="section-subtitle">My Portfolio</span>
       <h2 class="section-title">Recent Works</h2>
       <div class="work__container bd-grid">
-        <div class="work__img">
-          <img src="work1.jpg" alt="" />
-          <div class="work__data">
-            <a href="#" class="work__link"><i class="bx bx-link-alt"></i></a>
-            <span class="work__title"> Work 1</span>
-          </div>
-        </div>
-        <div class="work__img">
-          <img src="work2.jpg" alt="" />
-          <div class="work__data">
-            <a href="#" class="work__link"><i class="bx bx-link-alt"></i></a>
-            <span class="work__title"> Work 2</span>
-          </div>
-        </div>
-        <div class="work__img">
-          <img src="work3.jpg" alt="" />
-          <div class="work__data">
-            <a href="#" class="work__link"><i class="bx bx-link-alt"></i></a>
-            <span class="work__title"> Work 3</span>
-          </div>
-        </div>
-        <div class="work__img">
-          <img src="work4.jpg" alt="" />
-          <div class="work__data">
-            <a href="#" class="work__link"><i class="bx bx-link-alt"></i></a>
-            <span class="work__title"> Work 4</span>
-          </div>
-        </div>
+        <?php
+        $index = 0;
+        while (true) {
+          $sqlWork = "SELECT * FROM `work`WHERE `work`.`idx` = $index";
+          $resultWork = mysqli_query($conn, $sqlWork);
+
+          if (mysqli_num_rows($resultWork) > 0) {
+            $dataWork = mysqli_fetch_assoc($resultWork);
+            ?>
+
+
+            <div class="work__img">
+              <img src=<?= $dataWork['image'] ?> alt="" />
+              <div class="work__data">
+                <a href=<?= $dataWork['link'] ?> target="_blank" class="work__link"><i class="bx bx-link-alt"></i></a>
+                <span class="work__title">
+                  <?= $dataWork['title'] ?>
+                </span>
+              </div>
+            </div>
+            <?php
+          } else {
+            break;
+          }
+          $index++;
+        }
+        ?>
+
       </div>
     </section>
 
