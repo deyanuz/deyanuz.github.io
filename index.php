@@ -439,29 +439,97 @@
       <span class="section-subtitle">Contact Me</span>
       <h2 class="section-title">Get In Touch</h2>
       <div class="contact__container bd-grid">
-        <form action="" class="contact__form">
+
+        <form action="index.php" method="POST" class="contact__form">
           <div class="contact__inputs">
-            <input type="text" placeholder="Name" class="contact__input" />
-            <input type="mail" placeholder="Email" class="contact__input" />
+            <input type="text" name="username" placeholder="Name" class="contact__input" />
+            <input type="mail" name="email" placeholder="Email" class="contact__input" />
           </div>
-          <textarea name="" id="" cols="0" rows="10" placeholder="Message" class="contact__input"></textarea>
-          <input type="submit" value="Send Message" class="button contact__button" />
+          <textarea name="msg" id="" cols="0" rows="10" placeholder="Message" class="contact__input"></textarea>
+          <input type="submit" name="submit" value="Send Message" class="button contact__button" />
         </form>
+
+        <?php
+        if (isset($_POST["submit"])) {
+
+          $sendername = $_POST['username'];
+          $email = $_POST['email'];
+          $message = $_POST['msg'];
+          if ($sendername && $email && $message) {
+            $query = "INSERT INTO message (name, email, msg) VALUES ('$sendername','$email','$message')";
+            $result = mysqli_query($conn, $query);
+            mysqli_close($conn);
+          }
+        }
+        ?>
+
         <div>
           <div class="contact__info">
             <h3 class="contact__subtitle">Call Me</h3>
-            <span class="contact__text">999-000-123</span>
+            <?php
+            if ($dataContact['number1']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['number1'] ?>
+              </span>
+              <?php
+            }
+            ?>
+            <?php
+            if ($dataContact['number2']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['number2'] ?>
+              </span>
+              <?php
+            }
+            ?>
+            <?php
+            if ($dataContact['number3']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['number3'] ?>
+              </span>
+              <?php
+            }
+            ?>
           </div>
           <div class="contact__info">
             <h3 class="contact__subtitle">E-mail</h3>
-            <span class="contact__text">zunayed2007046@stud.kuet.ac.bd</span>
-            <span class="contact__text">zunayedkhanofficial@gmail.com</span>
+            <?php
+            if ($dataContact['email1']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['email1'] ?>
+              </span>
+              <?php
+            }
+            ?>
+            <?php
+            if ($dataContact['email2']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['email2'] ?>
+              </span>
+              <?php
+            }
+            ?>
+            <?php
+            if ($dataContact['email3']) {
+              ?>
+              <span class="contact__text">
+                <?= $dataContact['email3'] ?>
+              </span>
+              <?php
+            }
+            ?>
           </div>
           <div class="contact__info">
             <h3 class="contact__subtitle">Location</h3>
-            <span class="contact__text">KUET Road, Khulna</span>
+            <span class="contact__text"><?= $dataContact['location'] ?></span>
           </div>
         </div>
+
       </div>
     </section>
   </main>

@@ -8,5 +8,8 @@ $sqlAbout = "SELECT * FROM `about` WHERE `about`.`id` = 1";
 $resultAbout = mysqli_query($conn, $sqlAbout);
 $dataAbout = mysqli_fetch_assoc($resultAbout);
 
+$sqlContact = "SELECT * FROM `contact` WHERE `contact`.`id` = 1";
+$resultContact = mysqli_query($conn, $sqlContact);
+$dataContact = mysqli_fetch_assoc($resultContact);
 
 ?>
