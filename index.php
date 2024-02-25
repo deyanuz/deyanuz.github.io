@@ -49,6 +49,9 @@
           </li>
         </ul>
       </div>
+      <div class="toggle__theme">
+        <i class='bx bx-moon toggle__icon' id="toggle__icon"></i>
+      </div>
     </nav>
   </header>
   <main class="l-main">
@@ -443,7 +446,7 @@
         <form action="index.php" method="POST" class="contact__form">
           <div class="contact__inputs">
             <input type="text" name="username" placeholder="Name" class="contact__input" />
-            <input type="mail" name="email" placeholder="Email" class="contact__input" />
+            <input type="email" name="email" placeholder="Email" class="contact__input" />
           </div>
           <textarea name="msg" id="" cols="0" rows="10" placeholder="Message" class="contact__input"></textarea>
           <input type="submit" name="submit" value="Send Message" class="button contact__button" />
@@ -526,7 +529,9 @@
           </div>
           <div class="contact__info">
             <h3 class="contact__subtitle">Location</h3>
-            <span class="contact__text"><?= $dataContact['location'] ?></span>
+            <span class="contact__text">
+              <?= $dataContact['location'] ?>
+            </span>
           </div>
         </div>
 

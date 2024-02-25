@@ -591,7 +591,17 @@ img {
     left: 0; /* Move each item to the starting position */
     opacity: 1; /* Make each item visible */
   }
-  
+  .toggle__theme {
+     padding-top: 4rem;
+    padding-left: 14rem;
+    color: var(--first-color-lighten);
+  }
+  .toggle__icon {
+    color: var(--first-color-lighten);
+  }
+  .toggle__theme :hover {
+    color: var(--first-color-dark);
+  }
 }
 
 .activate {
@@ -605,4 +615,23 @@ img {
 
 .skills__bar.transition {
   width: 50%;
+}
+.toggle__theme {
+  position: relative;
+  top: 0.1rem;
+  font-size: 1.25rem;
+  color: var(--first-color-dark);
+  cursor: pointer;
+}
+body.dark-theme {
+  --first-color: #a34ac4; 
+  --first-color-dark: #9a59b4;
+  --first-color-darken: #c07ee9 ;
+  --text-color: #e0e0e0; 
+  --first-color-light: #302c2c; 
+  --first-color-lighten: #1c191d; 
+  --body-font: "Poppins", sans-serif;
+}
+.toggle__theme :hover {
+  color: var(--text-color);
 }
