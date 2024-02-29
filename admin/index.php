@@ -22,7 +22,6 @@
                 </div>
             </div>
             <div class="sidebar">
-
                 <a href="#">
                     <i class='bx bx-home-alt-2'></i>
                     <h3>HOME</h3>
@@ -46,6 +45,7 @@
                 <a href="#">
                     <i class='bx bx-message-rounded'></i>
                     <h3>MESSAGES</h3>
+                    <span class="message-count">26</span>
                 </a>
                 <a href="#">
                     <i class='bx bxs-contact'></i>
@@ -60,8 +60,56 @@
                     <h3>LOG OUT</h3>
                 </a>
             </div>
-
         </aside>
+
+        <main>
+            <h1> Admin Panel </h1>
+            <div class="home nav-section">
+                <h2>HOME</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td><input type="text" value="Zunayed Khan"></td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><input type="text" value="shadoww.png"></td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td><input type="text" value="B.Sc Undergraduate Student in KUET"></td>
+                        </tr>
+                        <tr>
+                            <th>Facebook</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        <tr>
+                            <th>Twitter</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        <tr>
+                            <th>Instagram</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        <tr>
+                            <th>LinkedIn</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        <tr>
+                            <th>Github</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        <tr>
+                            <th>Dribble</th>
+                            <td><input type="text" value="#"></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
     </div>
 </body>
 
