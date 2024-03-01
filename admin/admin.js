@@ -168,3 +168,10 @@ function removeWorksRow() {
     update.style.color = "#363949";
   });
 }
+function loginPage() {
+  window.location.href = "index.php";
+}
+function reloadPage() {
+  // Reload the page
+  location.reload();
+}

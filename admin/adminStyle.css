@@ -75,8 +75,15 @@ h3 {
 h4 {
   font-size: 0.8rem;
 }
+@keyframes vanish {
+  0% { opacity: 1; }
+  100% { opacity: 0; display: block; }
+}
 h5 {
   font-size: 0.77rem;
+  animation: vanish 3s ease forwards;
+  text-align: center;
+  margin-bottom: 5rem;
 }
 small {
   font-size: 0.75rem;
@@ -225,7 +232,7 @@ main table tbody td{
 main table tbody tr:last-child td{
   border: none;
 }
-main .nav-section a{
+main .nav-section .update-home{
   text-align: center;
   display: block;
   margin: 1rem auto;
@@ -240,6 +247,7 @@ main table tbody td {
 }
 main table tbody td  input{
   width: calc(100% - 20px);
+  height:2rem;
 }
 .not-visible{
   display: none !important;
@@ -268,4 +276,7 @@ main table tbody td  input{
   padding: 0 !important;
   height: auto !important;
   color: var(--color-danger);
+}
+.footer{
+  margin: 2rem;
 }
