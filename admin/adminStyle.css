@@ -5,12 +5,13 @@
   --color-warning: #ffbb55;
   --color-white: #fff;
   --color-info-dark: #7d8da1;
-  --color-info-light: #dce1eb;
+  --color-info-light: #dce1ebf3;
   --color-dark: #363949;
   --color-light: rgba(132, 139, 200, 0.18);
   --color-primary-varient: #111e88;
   --color-dark-varient: #677483;
   --color-background: #f6f6f9;
+  --color-dead-button: #cccccc;
 
   --card-border-radious: 2rem;
   --border-radius-1: 0.4rem;
@@ -20,7 +21,7 @@
   --card-padding: 1.8rem;
   --paddind-1: 1.2rem;
 
-  --box-shadow: 0 2rem 3rem var(var(--color-light));
+  --box-shadow: 0 2rem 3rem var(var(--color-dark));
 }
 * {
   margin: 0;
@@ -69,7 +70,7 @@ h2 {
   font-size: 1.4rem;
 }
 h3 {
-  font-size: 0.87rem;
+  font-size: 1rem;
 }
 h4 {
   font-size: 0.8rem;
@@ -143,7 +144,7 @@ aside .sidebar {
 aside h3 {
   font-weight: 500;
 }
-aside .sidebar a {
+aside .sidebar li {
   display: flex;
   color: var(--color-info-dark);
   margin-left: 2rem;
@@ -153,34 +154,34 @@ aside .sidebar a {
   height: 3.7rem;
   transition: all 0.5s ease;
 }
-aside .sidebar a i {
+aside .sidebar li i {
   font-size: 1.6rem;
   transition: all 0.25s ease;
 }
-aside .sidebar a:last-child {
+aside .sidebar li:last-child {
   position: absolute;
   bottom: 2rem;
   width: 100%;
 }
-aside .sidebar a.active {
+aside .sidebar li.active {
   background: var(--color-light);
   color: var(--color-primary);
   margin-left: 0;
 }
-aside .sidebar a.active:before {
+aside .sidebar li.active:before {
   content: "";
   width: 6px;
   height: 100%;
   background: var(--color-primary);
 }
-aside .sidebar a.active i {
+aside .sidebar li.active i {
   color: var(--color-primary);
   margin-left: calc(1rem-6px);
 }
-aside .sidebar a:hover {
+aside .sidebar li:hover {
   color: var(--color-primary);
 }
-aside .sidebar a:hover i {
+aside .sidebar li:hover i {
   margin-left: 1rem;
 }
 aside .sidebar .message-count {
@@ -199,15 +200,72 @@ main .nav-section{
 main .nav-section h2{
     margin-bottom: 0.8rem;
 }
-.nav-section table{
-    background: var(--color-white);
-    width: 100%;
-    border-radius: var(--card-border-radious);
-    padding: var(--card-padding);
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: all 0.25s ease;
+main .nav-section h3{
+  margin-bottom: 0.8rem;
 }
+
+.nav-section table {
+  background: var(--color-white);
+  width: 100%;
+  border-radius: var(--card-border-radious);
+  padding: var(--card-padding);
+  text-align: center;
+  box-shadow: var(--box-shadow); 
+  transition: all 0.25s ease;
+}
+
 .nav-section table:hover {
-    box-shadow :none;
+  box-shadow: 0 2px 3px var(--color-dark); 
+}
+main table tbody td{
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-info-light);
+  color: var(--color-dark-varient);
+}
+main table tbody tr:last-child td{
+  border: none;
+}
+main .nav-section a{
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--color-dead-button);
+  border-radius: var(--card-border-radious);
+  width: 20%;
+  height: 100%;
+  padding: 0.75rem;
+}
+main table tbody td {
+  text-align: left;
+}
+main table tbody td  input{
+  width: calc(100% - 20px);
+}
+.not-visible{
+  display: none !important;
+}
+.center{
+  text-align: center;
+}
+.add-btn{
+  background: var(--color-primary) !important;
+  color: var(--color-white);
+}
+.remove-btn{
+  background: var(--color-danger) !important;
+  color: var(--color-white);
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.delete-msg{
+  font-size: 0.75rem;
+  background:var(--color-white) !important;
+  margin: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  color: var(--color-danger);
 }
