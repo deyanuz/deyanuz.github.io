@@ -218,8 +218,6 @@ include 'connections.php' ?>
                                 <td class="center">
                                     <?= $dataEducation['specialty'] ?>
                                 </td>
-                                <td><a class="edit-skills" href="editskills.php?id=<?= $dataEducation['idx'] ?>">Edit</a>
-                                </td>
                                 <td><a class="edit-skills"
                                         href="deleteeducation.php?id=<?= $dataEducation['idx'] ?>">Delete</a>
                                 </td>
@@ -230,10 +228,9 @@ include 'connections.php' ?>
                     </tbody>
                 </table>
                 <div class="buttons">
-                    <a class="add-education add-btn" href="#" onclick="addEducationRow()">ADD</a>
+                    <a class="add-education add-btn" href="addeducation.php">ADD</a>
                 </div>
             </div>
-
 
             <div class="skills nav-section not-visible">
                 <h2>SKILLS</h2>
@@ -478,7 +475,6 @@ include 'connections.php' ?>
             </div>
 
             <div class="footer">
-
             </div>
         </main>
 

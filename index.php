@@ -242,13 +242,12 @@
       <div class="education__container bd-grid">
 
         <?php
-        $index = 0;
-        while (true) {
-          $sqlEducation = "SELECT * FROM `education`WHERE `education`.`idx` = $index";
+
+          $sqlEducation = "SELECT * FROM `education`";
           $resultEducation = mysqli_query($conn, $sqlEducation);
 
-          if (mysqli_num_rows($resultEducation) > 0) {
-            $dataAbout = mysqli_fetch_assoc($resultEducation);
+          while ($dataAbout = mysqli_fetch_assoc($resultEducation)) {
+            ;
             ?>
 
             <div class="education__content">
@@ -275,11 +274,8 @@
             </div>
 
             <?php
-          } else {
-            break;
-          }
-          $index++;
-        }
+          } 
+
         ?>
       </div>
       <p><br /><br /><br /></p>
@@ -408,30 +404,22 @@
       <h2 class="section-title">Recent Works</h2>
       <div class="work__container bd-grid">
         <?php
-        $index = 0;
-        while (true) {
-          $sqlWork = "SELECT * FROM `work`WHERE `work`.`idx` = $index";
-          $resultWork = mysqli_query($conn, $sqlWork);
+        $sqlWork = "SELECT * FROM `work`";
+        $resultWork = mysqli_query($conn, $sqlWork);
 
-          if (mysqli_num_rows($resultWork) > 0) {
-            $dataWork = mysqli_fetch_assoc($resultWork);
-            ?>
+        while ($dataWork = mysqli_fetch_assoc($resultWork)) {
+          ?>
 
-
-            <div class="work__img">
-              <img src=<?= $dataWork['image'] ?> alt="" />
-              <div class="work__data">
-                <a href=<?= $dataWork['link'] ?> target="_blank" class="work__link"><i class="bx bx-link-alt"></i></a>
-                <span class="work__title">
-                  <?= $dataWork['title'] ?>
-                </span>
-              </div>
+          <div class="work__img">
+            <img src=<?= $dataWork['image'] ?> alt="" />
+            <div class="work__data">
+              <a href=<?= $dataWork['link'] ?> target="_blank" class="work__link"><i class="bx bx-link-alt"></i></a>
+              <span class="work__title">
+                <?= $dataWork['title'] ?>
+              </span>
             </div>
-            <?php
-          } else {
-            break;
-          }
-          $index++;
+          </div>
+          <?php
         }
         ?>
 

@@ -336,7 +336,7 @@ padding-bottom: 1rem;
 .skill-edit::placeholder {
   text-indent: 7px; 
 }
-.update{
+.update {
   text-align: center;
   display: block;
   margin: 1rem auto;
@@ -345,4 +345,7 @@ padding-bottom: 1rem;
   width: 20%;
   height: 100%;
   padding: 0.75rem;
+}
+.model-education{
+  height: 350px;
 }
