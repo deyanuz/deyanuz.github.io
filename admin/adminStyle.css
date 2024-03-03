@@ -278,6 +278,7 @@ main table tbody td  input{
   flex-direction: row;
   justify-content: left;
 }
+.edit-works,
 .edit-skills,
 .delete-msg{
   font-size: 0.75rem;

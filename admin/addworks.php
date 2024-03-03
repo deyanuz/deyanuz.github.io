@@ -9,12 +9,12 @@
 <body>
     <div class="bg-model">
         <div class="model-content">
-            <h3>Add Skill</h3>
-            <form action="insertskill.php" method="POST">
-                <input type="hidden" name="id" value="<?php echo isset($_GET['end']) ? $_GET['end'] : ''; ?>" >
-                <input type="text" name="skillname" class="skill-edit" placeholder="Skill Name" required>
-                <input type="text" name="level" class="skill-edit" placeholder="Skill Level" required>
-                <input type="submit" name="submitinsertskills" class="update" value="UPDATE">
+            <h3>Add Work</h3>
+            <form action="addworks.php" method="POST">
+                <input type="text" name="workname" class="skill-edit" placeholder="Title" required>
+                <input type="text" name="image" class="skill-edit" placeholder="Image" required>
+                <input type="text" name="link" class="skill-edit" placeholder="Link" required>
+                <input type="submit" name="submitinsertworks" class="update" value="UPDATE">
             </form>
         </div>
     </div>
@@ -22,7 +22,7 @@
 </html>
 
 <?php
-if (isset($_POST['submitinsertskills'])) {
+if (isset($_POST['submitinsertworks'])) {
     $dsn = "mysql:host=localhost;dbname=webportfolio;charset=utf8mb4";
     $username = "root";
     $password = "";
@@ -31,23 +31,21 @@ if (isset($_POST['submitinsertskills'])) {
         $pdo = new PDO($dsn, $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Retrieve id
-        $end = isset($_POST['id']) ? $_POST['id'] : '';
-
         // Insert new skills
-        if (isset($_POST['skillname']) && isset($_POST['level'])) {
-            $skillname= $_POST['skillname'];
-            $skilllevel = $_POST['level'];
+        if (isset($_POST['workname']) && isset($_POST['image']) && isset($_POST['link'])) {
+            $workname= $_POST['workname'];
+            $image = $_POST['image'];
+            $link = $_POST['link'];
 
             // Iterate over each skill and insert into database
 
                 // Prepare SQL statement
-                $sql = "INSERT INTO skills (`f/b`, `name`, `level`) VALUES (:fb, :name, :level)";
+                $sql = "INSERT INTO work (`image`, `link`,title) VALUES (:image, :link, :title)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([
-                    'fb' => $end,
-                    'name' => $skillname,
-                    'level' => $skilllevel
+                    'title' => $workname,
+                    'image' => $image,
+                    'link' => $link
                 ]);
 
             if ($stmt->rowCount() > 0) {

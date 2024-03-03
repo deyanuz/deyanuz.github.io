@@ -220,7 +220,8 @@ include 'connections.php' ?>
                                 </td>
                                 <td><a class="edit-skills" href="editskills.php?id=<?= $dataEducation['idx'] ?>">Edit</a>
                                 </td>
-                                <td><a class="edit-skills" href="deleteeducation.php?id=<?= $dataEducation['idx'] ?>">Delete</a>
+                                <td><a class="edit-skills"
+                                        href="deleteeducation.php?id=<?= $dataEducation['idx'] ?>">Delete</a>
                                 </td>
                             </tr>
                             <?php
@@ -307,23 +308,29 @@ include 'connections.php' ?>
                 <h2>WORKS</h2>
                 <table>
                     <thead>
-                        <th>Name</th>
+                        <th>Title</th>
                         <th>Image</th>
                         <th>Link</th>
 
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="center"><input class="center" type="text" value="2018"></td>
-                            <td class="center"><input class="center" type="text" value="SSC"></td>
-                            <td class="center"><input class="center" type="text" value="Science"></td>
-                        </tr>
+                        <?php
+                        while ($dataWorks = mysqli_fetch_assoc($resultWorks)) {
+                            ?>
+                            <tr>
+                                <td class="center"><input class="center" type="text" value="<?= $dataWorks['title'] ?>"></td>
+                                <td class="center"><input class="center" type="text" value="<?= $dataWorks['image'] ?>"></td>
+                                <td class="center"><input class="center" type="text" value="<?= $dataWorks['link'] ?>"></td>
+                                <td><a class="edit-works" href="deleteworks.php?id=<?= $dataWorks['idx'] ?>">Delete</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 <div class="buttons">
-                    <a class="update " href="#">UPDATE</a>
-                    <a class="add-works add-btn" href="#" onclick="addWorksRow()">ADD</a>
-                    <a class="remove-works remove-btn not-visible" href="#" onclick="removeWorksRow()">REMOVE</a>
+                    <a class="add-works add-btn" href="addworks.php">ADD</a>
                 </div>
             </div>
 

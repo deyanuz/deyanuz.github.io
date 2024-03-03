@@ -18,5 +18,8 @@ $resultMessage = mysqli_query($conn, $sqlMessage);
 $sqlSkills = "SELECT * FROM `skills`";
 $resultSkills = mysqli_query($conn, $sqlSkills);
 
+$sqlWorks = "SELECT * FROM `work`";
+$resultWorks = mysqli_query($conn, $sqlWorks);
+
 
 ?>
