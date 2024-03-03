@@ -8,6 +8,17 @@ inputs.forEach((input) => {
   });
 });
 
+const inputa = document.querySelectorAll(".about-input");
+const updatea = document.querySelector(".update-contact");
+inputa.forEach((input) => {
+  input.addEventListener("input", () => {
+    // Change color of the update link
+    updatea.style.background = "#7380ec";
+    updatea.style.color = "#ffff";
+  });
+});
+
+
 document.querySelectorAll(".nav-menu").forEach((item) => {
   item.addEventListener("click", (event) => {
     const clickedId = item.querySelector("h3").textContent.toLocaleLowerCase();
@@ -79,6 +90,7 @@ function addBackendRow() {
   newRow.innerHTML = `
                 <td class="center"><input class="center" type="text" value=""></td>
                 <td class="center"><input class="center" type="text" value=""></td>
+                <td><a class="edit-skills" href="editskills.php?id=<?= $dataSkills['idx'] ?>">Edit</a></td>
             `;
   tbody.appendChild(newRow);
   const updates = document.querySelectorAll(".update");
@@ -112,6 +124,7 @@ function addFrontendRow() {
   newRow.innerHTML = `
                 <td class="center"><input class="center" type="text" value=""></td>
                 <td class="center"><input class="center" type="text" value=""></td>
+                <td><a class="edit-skills" href="editskills.php?id=<?= $dataSkills['idx'] ?>">Edit</a></td>
             `;
   tbody.appendChild(newRow);
   const updates = document.querySelectorAll(".update");
@@ -175,3 +188,4 @@ function reloadPage() {
   // Reload the page
   location.reload();
 }
+

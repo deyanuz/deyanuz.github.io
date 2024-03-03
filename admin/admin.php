@@ -31,10 +31,6 @@ include 'connections.php' ?>
                         <i class='bx bx-home-alt-2'></i>
                         <h3>HOME</h3>
                     </li>
-                    <li id="about" class="nav-menu">
-                        <i class='bx bx-info-circle'></i>
-                        <h3>ABOUT</h3>
-                    </li>
                     <li id="education" class="nav-menu">
                         <i class='bx bx-book-alt'></i>
                         <h3>EDUCATION</h3>
@@ -50,15 +46,13 @@ include 'connections.php' ?>
                     <li id="messages" class="nav-menu">
                         <i class='bx bx-message-rounded'></i>
                         <h3>MESSAGES</h3>
-                        <span class="message-count">26</span>
+                        <span class="message-count">
+                            <?= mysqli_num_rows($resultMessage) ?>
+                        </span>
                     </li>
                     <li class="nav-menu" id="contact">
                         <i class='bx bxs-contact'></i>
                         <h3>CONTACT</h3>
-                    </li>
-                    <li id="settings" class="nav-menu">
-                        <i class='bx bx-cog'></i>
-                        <h3>SETTINGS</h3>
                     </li>
                     <li onclick="loginPage()" id="log-out" class="nav-menu">
                         <i class='bx bx-log-out'></i>
@@ -127,7 +121,7 @@ include 'connections.php' ?>
                             </tr>
                         </tbody>
                     </table>
-                    <input type="submit" name="submit" class="update-home" value="UPDATE">
+                    <input type="submit" name="submit" class="update-home update" value="UPDATE">
                 </form>
 
                 <?php
@@ -196,124 +190,84 @@ include 'connections.php' ?>
                 ?>
             </div>
 
-            <div class="about nav-section not-visible">
-                <h2>ABOUT</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Image</th>
-                            <td><input type="text" class="about-input" value="Zunayed Khan"></td>
-                        </tr>
-                        <tr>
-                            <th>Descrioption</th>
-                            <td><input type="text" class="about-input"
-                                    value="Passionate B.Sc undergraduate on a journey of exploration and learning. Dive into my world of diverse interests, projects, and aspirations. Join me in making a positive impact. Welcome to my portfolio!">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Hobby-1</th>
-                            <td><input type="text" class="about-input" value="B.Sc Undergraduate Student in KUET"></td>
-                        </tr>
-                        <tr>
-                            <th>Hobby-2</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Hobby-3</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Achievement-1</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Note-1</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Link-1</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Achievement-2</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Note-2</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Link-2</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Achievement-3</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Note-3</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Link-3</th>
-                            <td><input type="text" class="about-input" value="#"></td>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-                <a class="update-about" href="">UPDATE</a>
-            </div>
-
             <div class="education nav-section not-visible">
                 <h2>EDUCATION</h2>
                 <table>
                     <thead>
-                        <th>Year</th>
-                        <th>Institution</th>
-                        <th>Degree</th>
-                        <th>Discipline</th>
+                        <tr>
+                            <th>Year</th>
+                            <th>Institution</th>
+                            <th>Degree</th>
+                            <th>Discipline</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="center"><input class="center" type="text" value="2018"></td>
-                            <td class="center"><input class="center" type="text"
-                                    value="The Flowers K.G. <br> and High School"></td>
-                            <td class="center"><input class="center" type="text" value="SSC"></td>
-                            <td class="center"><input class="center" type="text" value="Science"></td>
-                        </tr>
+                        <?php
+                        while ($dataEducation = mysqli_fetch_assoc($resultEducation)) {
+                            ?>
+                            <tr>
+                                <td class="center">
+                                    <?= $dataEducation['year'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataEducation['uni'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataEducation['race'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataEducation['specialty'] ?>
+                                </td>
+                                <td><a class="edit-skills" href="editskills.php?id=<?= $dataEducation['idx'] ?>">Edit</a>
+                                </td>
+                                <td><a class="edit-skills" href="deleteeducation.php?id=<?= $dataEducation['idx'] ?>">Delete</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 <div class="buttons">
-                    <a class="update " href="#">UPDATE</a>
                     <a class="add-education add-btn" href="#" onclick="addEducationRow()">ADD</a>
-                    <a class="remove-education remove-btn not-visible" href="#"
-                        onclick="removeEducationRow()">REMOVE</a>
                 </div>
             </div>
+
 
             <div class="skills nav-section not-visible">
                 <h2>SKILLS</h2>
                 <h3>Frontend</h3>
+
                 <table class="frontend">
                     <thead>
                         <th>Skill Name</th>
                         <th>Skill Level</th>
                     </thead>
                     <tbody>
-                        <tr>
+                        <?php
+                        while ($dataSkills = mysqli_fetch_assoc($resultSkills)) {
+                            if ($dataSkills['f/b'] == 'f') {
+                                ?>
+                                <tr>
+                                    <td class="center"><input class="center skills-input" name="skillname[]" type="text"
+                                            value="<?= $dataSkills['name'] ?>"></td>
+                                    <td class="center"><input class="center skills-input" name="skilllevel[]" type="text"
+                                            value="<?= $dataSkills['level'] ?>"></td>
+                                    <td><a class="edit-skills" href="editskills.php?id=<?= $dataSkills['idx'] ?>">Edit</a>
+                                    </td>
+                                    <td><a class="edit-skills" href="deleteskills.php?id=<?= $dataSkills['idx'] ?>">Delete</a>
+                                    </td>
+                                </tr>
 
-                            <td class="center"><input class="center" type="text" value="PYTHON"></td>
-                            <td class="center"><input class="center" type="text" value="20"></td>
-                        </tr>
+                                <?php
+                            }
+                        }
+                        ?>
                     </tbody>
                 </table>
                 <div class="buttons">
-                    <a class="update " href="#">UPDATE</a>
-                    <a class="add-frontend add-btn" href="#" onclick="addFrontendRow()">ADD</a>
-                    <a class="remove-frontend remove-btn not-visible" href="#" onclick="removeFrontendRow()">REMOVE</a>
+                    <a class="add-frontend add-btn" href="insertskill.php?end=f">ADD</a>
                 </div>
-
                 <h3>Backendend</h3>
                 <table class="backend">
                     <thead>
@@ -321,17 +275,31 @@ include 'connections.php' ?>
                         <th>Skill Level</th>
                     </thead>
                     <tbody>
-                        <tr>
+                        <?php
+                        $resultSkills = mysqli_query($conn, $sqlSkills);
+                        while ($dataSkills = mysqli_fetch_assoc($resultSkills)) {
+                            if ($dataSkills['f/b'] == 'b') {
+                                ?>
+                                <tr>
 
-                            <td class="center"><input class="center" type="text" value="PYTHON"></td>
-                            <td class="center"><input class="center" type="text" value="20"></td>
-                        </tr>
+                                    <td class="center"><input class="center skills-input" name="skillname" type="text"
+                                            value="<?= $dataSkills['name'] ?>">
+                                    </td>
+                                    <td class="center"><input class="center skills-input" name='skilllevel' type="text"
+                                            value="<?= $dataSkills['level'] ?>"></td>
+                                    <td><a class="edit-skills" href="editskills.php?id=<?= $dataSkills['idx'] ?>">Edit</a></td>
+                                    <td><a class="edit-skills" href="deleteskills.php?id=<?= $dataSkills['idx'] ?>">Delete</a>
+                                    </td>
+                                </tr>
+
+                                <?php
+                            }
+                        }
+                        ?>
                     </tbody>
                 </table>
                 <div class="buttons">
-                    <a class="update " href="#">UPDATE</a>
-                    <a class="add-backend add-btn" href="#" onclick="addBackendRow()">ADD</a>
-                    <a class="remove-backend remove-btn not-visible" href="#" onclick="removeBackendRow()">REMOVE</a>
+                    <a class="add-frontend add-btn" href="insertskill.php?end=b">ADD</a>
                 </div>
             </div>
 
@@ -361,57 +329,143 @@ include 'connections.php' ?>
 
             <div class="contact nav-section not-visible">
                 <h2>CONTACT</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Phone NO. 1</th>
-                            <td><input type="text" value="Zunayed Khan"></td>
-                        </tr>
-                        <tr>
-                            <th>Phone NO. 2</th>
-                            <td><input type="text" value="shadoww.png"></td>
-                        </tr>
-                        <tr>
-                            <th>Phone NO. 3</th>
-                            <td><input type="text" value="B.Sc Undergraduate Student in KUET"></td>
-                        </tr>
-                        <tr>
-                            <th>Email 1</th>
-                            <td><input type="text" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Email 2</th>
-                            <td><input type="text" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Email 3</th>
-                            <td><input type="text" value="#"></td>
-                        </tr>
-                        <tr>
-                            <th>Location</th>
-                            <td><input type="text" value="#"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a class="update" href="">UPDATE</a>
+                <form action="admin.php" method="POST" id="update-form">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Phone NO. 1</th>
+                                <td><input type="text" name="number1" class="about-input"
+                                        value="<?= $dataContact['number1'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Phone NO. 2</th>
+                                <td><input type="text" name="number2" class="about-input"
+                                        value="<?= $dataContact['number2'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Phone NO. 3</th>
+                                <td><input type="text" name="number3" class="about-input"
+                                        value="<?= $dataContact['number3'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Email 1</th>
+                                <td><input type="text" name="email1" class="about-input"
+                                        value="<?= $dataContact['email1'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Email 2</th>
+                                <td><input type="text" name="email2" class="about-input"
+                                        value="<?= $dataContact['email2'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Email 3</th>
+                                <td><input type="text" name="email3" class="about-input"
+                                        value="<?= $dataContact['email3'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Location</th>
+                                <td><input type="text" name="location" class="about-input"
+                                        value="<?= $dataContact['location'] ?>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" name="submitabout" class="update-contact update" value="UPDATE">
+                </form>
+
+                <?php
+                // Assuming you have established a database connection
+                
+                if (isset($_POST['submitabout'])) {
+                    $number1 = $_POST['number1'];
+                    $number2 = $_POST['number2'];
+                    $number3 = $_POST['number3'];
+                    $email1 = $_POST['email1'];
+                    $email2 = $_POST['email2'];
+                    $email3 = $_POST['email3'];
+                    $location = $_POST['location'];
+
+                    // Prepare SQL statement
+                    $sql = "UPDATE contact 
+            SET 
+                number1 = :number1,
+                number2 = :number2,
+                number3 = :number3,
+                email1 = :email1,
+                email2 = :email2,
+                email3 = :email3,
+                location = :location
+            WHERE
+                id = 1";
+
+                    $dsn = "mysql:host=localhost;dbname=webportfolio;charset=utf8mb4";
+                    $username = "root";
+                    $password = "";
+
+                    try {
+                        $pdo = new PDO($dsn, $username, $password);
+                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        // Prepare and execute the statement
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([
+                            'number1' => $number1,
+                            'number2' => $number2,
+                            'number3' => $number3,
+                            'email1' => $email1,
+                            'email2' => $email2,
+                            'email3' => $email3,
+                            'location' => $location,
+                        ]);
+
+                        // Check if the update was successful
+                        if ($stmt->rowCount() > 0) {
+                            header("Location: " . $_SERVER['PHP_SELF']);
+                            exit(); // Ensure script execution stops after redirect
+                        } else {
+                            echo "<h5>Update failed.</h5>";
+                        }
+                    } catch (PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
+                }
+                ?>
+
+
             </div>
 
             <div class="messages nav-section not-visible">
                 <h2>MESSAGES</h2>
                 <table>
                     <thead>
-                        <th>Email</th>
                         <th>Time</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>Message</th>
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="center">abc</td>
-                            <td class="center">def</td>
-                            <td class="center">nasnkskk</td>
-                            <td><a class="delete-msg" href="#">Delete</a></td>
-                        </tr>
+                        <?php
+                        while ($dataMessage = mysqli_fetch_assoc($resultMessage)) {
+                            ?>
+                            <tr>
+                                <td class="center">
+                                    <?= $dataMessage['time'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataMessage['name'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataMessage['email'] ?>
+                                </td>
+                                <td class="center">
+                                    <?= $dataMessage['msg'] ?>
+                                </td>
+
+                                <td><a class="delete-msg" href="delete.php?id=<?= $dataMessage['id'] ?>">Delete</a></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

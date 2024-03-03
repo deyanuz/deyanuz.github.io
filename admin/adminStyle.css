@@ -232,7 +232,17 @@ main table tbody td{
 main table tbody tr:last-child td{
   border: none;
 }
-main .nav-section .update-home{
+main .nav-section .update{
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--color-dead-button);
+  border-radius: var(--card-border-radious);
+  width: 20%;
+  height: 100%;
+  padding: 0.75rem;
+}
+main .nav-section a{
   text-align: center;
   display: block;
   margin: 1rem auto;
@@ -268,15 +278,70 @@ main table tbody td  input{
   flex-direction: row;
   justify-content: left;
 }
+.edit-skills,
 .delete-msg{
   font-size: 0.75rem;
   background:var(--color-white) !important;
   margin: 0 !important;
   border: 0 !important;
   padding: 0 !important;
+  padding-left: 1rem !important;
   height: auto !important;
   color: var(--color-danger);
 }
 .footer{
   margin: 2rem;
+}
+.bg-model {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Changed opacity to rgba for transparency */
+  position: fixed; /* Changed position to fixed */
+  top: 0;
+  left: 0;
+  z-index: 999; /* Increased z-index to ensure it overlays other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.model-content {
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 1rem; /* Added border radius for rounded corners */
+  padding: 1rem; /* Added padding */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Added box shadow for depth */
+  text-align: center;
+}
+.model-content h3{
+padding-top: 1rem;
+padding-bottom: 1rem;
+}
+.skill-edit{
+  background-color: var(--color-info-light);
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.skilleditbutton{
+  margin-bottom: 0 !important;
+  height: 2.4rem !important;
+  font-size: 0.77rem;
+}
+.skill-edit::placeholder {
+  text-indent: 7px; 
+}
+.update{
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--color-dead-button);
+  border-radius: var(--card-border-radious);
+  width: 20%;
+  height: 100%;
+  padding: 0.75rem;
 }
