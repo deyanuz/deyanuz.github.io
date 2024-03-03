@@ -65,9 +65,11 @@ img {
 h1 {
   font-weight: 800;
   font-size: 1.8rem;
+  text-align: center;
 }
 h2 {
   font-size: 1.4rem;
+  text-align: center;
 }
 h3 {
   font-size: 1rem;
