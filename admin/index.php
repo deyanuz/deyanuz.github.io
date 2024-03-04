@@ -34,8 +34,12 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
         <form action="index.php" method="POST">
             <input type="text" name="username" <?= isset($nameCookie) ? 'value="' . $nameCookie . '"' : 'placeholder="Username"'; ?> required>
-            <input type="password" name="password" <?= isset($passCookie) ? 'value="' . $passCookie . '"' : 'placeholder="Username"'; ?> required>
-            <input type="submit" name="submit" value="Login">
+            <input type="password" name="password" <?= isset($passCookie) ? 'value="' . $passCookie . '"' : 'placeholder="Password"'; ?> required>
+            <div class="remember-me">
+                <input type="checkbox" name="checkbox" id="remember" class='remember'>
+                <label for="remember">Remember me</label>
+            </div>
+            <span><input type="submit" name="submit" value="Login">
         </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,10 +57,13 @@ $_SESSION['LAST_ACTIVITY'] = time();
             $count = mysqli_num_rows($result);
 
             if ($count == 1) {
-                $_SESSION['name'] = $name;
-                $_SESSION['pass'] = $pass;
-                setcookie('name', $name, time() + 86400, "/");
-                setcookie('pass', $pass, time() + 86400, "/");
+                if (isset($_POST['checkbox'])) {
+                    // If "Remember me" checkbox is checked, initialize session and cookies
+                    $_SESSION['name'] = $name;
+                    $_SESSION['pass'] = $pass;
+                    setcookie('name', $name, time() + 3600, "/");
+                    setcookie('pass', $pass, time() + 3600, "/");
+                }
                 header('Location: admin.php');
             } else {
                 ?>

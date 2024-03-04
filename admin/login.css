@@ -8,9 +8,6 @@
   --color-info-light: #dce1ebf3;
   --color-dark: #363949;
   --color-light: rgba(132, 139, 200, 0.18);
-  --color-primary-varient: #111e88;
-  --color-dark-varient: #677483;
-  --color-background: #f6f6f9;
   --color-dead-button: #cccccc;
 
   --first-color: rgb(181, 116, 228);
@@ -21,19 +18,16 @@
   --first-color-lighten: rgb(239, 238, 240);
   --body-font: "Poppins", sans-serif;
 
-  --card-border-radious: 2rem;
+  --card-border-radius: 2rem;
   --border-radius-1: 0.4rem;
   --border-radius-2: 0.8rem;
   --border-radius-3: 1.2rem;
 
   --card-padding: 1.8rem;
-  --paddind-1: 1.2rem;
-
-  --box-shadow: 0 0.2rem 0.6rem var(--color-dark);
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--body-font);
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -47,9 +41,11 @@ body {
   text-align: center;
   display: grid;
 }
+
 a {
-  padding-top: var(--paddind-1);
+  padding-top: var(--card-padding);
 }
+
 h2 {
   color: var(--first-color-darken);
 }
@@ -57,14 +53,14 @@ h2 {
 form {
   background-color: #fff;
   padding: 20px;
-  border-radius: 1rem;
-
+  border-radius: var(--card-border-radius);
   display: inline-block;
   text-align: left;
   transition: all 0.3s ease;
 }
+
 form:hover {
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 0.2rem 0.6rem var(--color-dark);
 }
 
 input {
@@ -85,6 +81,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--first-color-dark);
 }
+
 @keyframes vanish {
   0% {
     opacity: 1;
@@ -100,4 +97,32 @@ h5 {
   position: absolute;
   margin-top: 18rem;
   margin-left: 6.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: baseline;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 2px;  
+  transform: scale(0.9);
+}
+
+.remember-me label {
+  margin-left: 1px; /* Add margin to separate checkbox and label */
+  font-size: 0.9rem;
+}
+
+.remember {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 10%;
+}
+
+.remember-me input {
+  font-size: 0.77rem;
 }
