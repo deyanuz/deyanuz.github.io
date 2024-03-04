@@ -108,6 +108,13 @@
             }
             ?>
             <?php
+            if ($data['youtube']) {
+              ?>
+              <a href=<?= $data['youtube'] ?> target="_blank" class="home__social-link"><i class="bx bxl-youtube"></i></a>
+              <?php
+            }
+            ?>
+            <?php
             if ($data['dribble']) {
               ?>
               <a href=<?= $data['dribble'] ?> target="_blank" class="home__social-link"><i class="bx bxl-dribbble"></i></a>

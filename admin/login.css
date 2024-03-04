@@ -93,10 +93,10 @@ input[type="submit"]:hover {
 }
 
 h5 {
-  animation: vanish 3s ease forwards;
-  position: absolute;
-  margin-top: 18rem;
-  margin-left: 6.5rem;
+  animation: vanish 5s ease forwards;
+  position: absolute !important;
+  margin-top: 3rem;
+  margin-left: 3rem;
 }
 
 .remember-me {
