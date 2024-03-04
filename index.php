@@ -250,38 +250,38 @@
 
         <?php
 
-          $sqlEducation = "SELECT * FROM `education`";
-          $resultEducation = mysqli_query($conn, $sqlEducation);
+        $sqlEducation = "SELECT * FROM `education`";
+        $resultEducation = mysqli_query($conn, $sqlEducation);
 
-          while ($dataAbout = mysqli_fetch_assoc($resultEducation)) {
-            ;
-            ?>
+        while ($dataAbout = mysqli_fetch_assoc($resultEducation)) {
+          ;
+          ?>
 
-            <div class="education__content">
-              <div>
-                <h3 class="education__year">
-                  <?= $dataAbout['year'] ?>
-                </h3>
-                <span class="education__university">
-                  <?= $dataAbout['uni'] ?>
-                </span>
-              </div>
-              <div class="education__time">
-                <span class="education__rounder"></span>
-                <span class="education__line"></span>
-              </div>
-              <div>
-                <h3 class="education__race">
-                  <?= $dataAbout['race'] ?>
-                </h3>
-                <span class="education__speciality">
-                  <?= $dataAbout['specialty'] ?>
-                </span>
-              </div>
+          <div class="education__content">
+            <div>
+              <h3 class="education__year">
+                <?= $dataAbout['year'] ?>
+              </h3>
+              <span class="education__university">
+                <?= $dataAbout['uni'] ?>
+              </span>
             </div>
+            <div class="education__time">
+              <span class="education__rounder"></span>
+              <span class="education__line"></span>
+            </div>
+            <div>
+              <h3 class="education__race">
+                <?= $dataAbout['race'] ?>
+              </h3>
+              <span class="education__speciality">
+                <?= $dataAbout['specialty'] ?>
+              </span>
+            </div>
+          </div>
 
-            <?php
-          } 
+          <?php
+        }
 
         ?>
       </div>
@@ -362,45 +362,41 @@
           <i class="bx bx-server forte__icon"></i>
           <h3 class="forte__title">Backend Development</h3>
           <p class="forte__description">
-            Versatile web developer with expertise in HTML, CSS, JavaScript,
-            and framework, dedicated to crafting efficient, user-friendly
-            websites.
+            Experienced backend developer skilled in Python, Java, and PHP, specializing in scalable, secure web
+            applications. Dedicated to exceeding client expectations with robust solutions..
           </p>
         </div>
         <div class="forte__content">
           <i class="bx bxl-android forte__icon"></i>
           <h3 class="forte__title">App Development</h3>
           <p class="forte__description">
-            Versatile web developer with expertise in HTML, CSS, JavaScript,
-            and framework, dedicated to crafting efficient, user-friendly
-            websites.
+            Experienced app developer proficient in Swift, Kotlin, and Java for iOS and Android platforms. Creates
+            intuitive, feature-rich apps that engage users and address real-world challenges using cutting-edge
+            technologies.
           </p>
         </div>
         <div class="forte__content">
           <i class="bx bx-pencil forte__icon"></i>
           <h3 class="forte__title">Content Writing</h3>
           <p class="forte__description">
-            Versatile web developer with expertise in HTML, CSS, JavaScript,
-            and framework, dedicated to crafting efficient, user-friendly
-            websites.
+            Skilled content writer adept at crafting compelling, SEO-friendly content. Proficient in research, editing,
+            and proofreading. Dedicated to engaging content that drives results.
           </p>
         </div>
         <div class="forte__content">
           <i class="bx bx-data forte__icon"></i>
           <h3 class="forte__title">Database</h3>
           <p class="forte__description">
-            Versatile web developer with expertise in HTML, CSS, JavaScript,
-            and framework, dedicated to crafting efficient, user-friendly
-            websites.
+            Database expert skilled in SQL, NoSQL, and DBMS. Proficient in designing, implementing, and optimizing
+            databases for efficiency and scalability. Committed to data integrity, security, and accessibility.
           </p>
         </div>
         <div class="forte__content">
           <i class="bx bx-brain forte__icon"></i>
           <h3 class="forte__title">Problem Solving</h3>
           <p class="forte__description">
-            Versatile web developer with expertise in HTML, CSS, JavaScript,
-            and framework, dedicated to crafting efficient, user-friendly
-            websites.
+            Skilled problem-solver adept at analyzing complex issues and devising innovative solutions. Proficient in
+            critical thinking and data-driven decision-making. Passionate about delivering results.
           </p>
         </div>
       </div>

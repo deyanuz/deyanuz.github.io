@@ -407,6 +407,7 @@ img {
 }
 .forte__description {
   padding-left: 0.5rem;
+  text-align: center;
 }
 .work__container {
   justify-items: center;
