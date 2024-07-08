@@ -6,12 +6,11 @@
 - [Built With](#built-with)
 - [Features](#features)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 ## Overview
 
 <!-- TODO: Add a screenshot of the live project. -->
-1. [Link to a live demo](deyanuz.github.io).
+1. [Link to a live demo](https://deyanuz.github.io/).
 2. This project was a rewarding experience where I delved into frontend development using HTML, CSS, and JavaScript, and backend development using raw PHP. 
 3. Throughout the project, I enhanced my skills in JavaScript animations, CSS styling, and HTML structure.
 4. Tips for others: Start with a clear plan, utilize online resources, and don't hesitate to ask for help from the developer community.
