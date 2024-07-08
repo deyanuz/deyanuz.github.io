@@ -41,5 +41,5 @@
 
 **Zunyed Khan**
 
-- [LinkedIn]([https://www.linkedin.com](https://www.linkedin.com/in/zunayed-khan-157446318/))
-- [GitHub]([https://www.github.com](https://github.com/deyanuz))
+- [LinkedIn](https://www.linkedin.com/in/zunayed-khan-157446318/)
+- [GitHub](https://github.com/deyanuz)
